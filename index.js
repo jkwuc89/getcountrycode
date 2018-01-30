@@ -15,11 +15,15 @@ exports.handler = (country, context, callback) => {
                 if (_.isArray(countryCodes)) {
                     let countryCode = countryCodes.find(function(currentCountryCode) {
                         return currentCountryCode.Name.toUpperCase() === country.name.toUpperCase();
-                    }).Code;
-                    callback(null, {
-                        "name": country.name,
-                        "code": countryCode
                     });
+                    if (!_.isEmpty(countryCode)) {
+                        callback(null, {
+                            "name": country.name,
+                            "code": countryCode.Code
+                        });
+                    } else {
+                        callback(`Country code for ${country.name} does not exist`);
+                    }
                 } else {
                     callback("ERROR: Country code response does not contain an array");
                 }
@@ -42,4 +46,4 @@ function localCallback(error, success) {
 }
 
 // Uncomment this to run/debug this function locally
-// exports.handler({"name": "Germany"}, null, localCallback);
+// exports.handler({"name": "Ohio"}, null, localCallback);
