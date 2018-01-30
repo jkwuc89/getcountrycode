@@ -1,0 +1,24 @@
+{
+    "name": "getcountrycode",
+    "version": "1.0.0",
+    "description": "Get ISO 3166-1 alpha-2 country code for a country",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "country",
+        "ISO3166-1",
+        "ISO3166",
+        "alpha-2"
+    ],
+    "author": "Keith Wedinger",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "axios": "^0.17.1",
+        "underscore": "^1.8.3"
+    },
+    "devDependencies": {
+        "eslint": "^4.16.0"
+    }
+}
